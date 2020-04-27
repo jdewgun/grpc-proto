@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "protocol-buffers-basics-II/building.proto";
+import "protocol-buffers-basics-II/street.proto";
+import "protocol-buffers-basics-II/city.proto";
+
+message Address {
+  Building building_details = 1;
+  Street street_details = 2;
+  City city_details = 3;
+}
