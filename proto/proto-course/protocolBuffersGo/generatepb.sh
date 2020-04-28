@@ -1,0 +1,1 @@
+protoc -I src/ --go_out=src/protocolBuffers/ src/protocolBuffers/addressbook.proto
