@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package CalculatorService;
+
+option java_package = "com.jdewgun.github.proto.calculator";
+option java_multiple_files = true;
+
+service CalculatorService {
+  // Unary API
+  rpc Sum(SumRequest) returns (SumResponse) {};
+  // Server Streaming
+  rpc PrimeNumberDecomposition(PrimeNumberDecomposeRequest) returns (stream PrimeNumberDecomposeResponse) {};
+  // Client Streaming
+  rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
+  // BiDirectional Streaming
+  rpc FindMaximum (stream FindMaximumRequest) returns (stream FindMaximumResponse) {};
+}
+
+// Sum Service Messages
+message SumRequest {
+  sint32 first_number = 1;
+  sint32 second_number = 2;
+}
+
+message SumResponse {
+  sint32 sumResult = 1;
+}
+
+// PrimeNumberDecomposition Service Messages
+
+message PrimeNumberDecomposeRequest {
+  int32 number_to_decompose = 1;
+}
+
+message PrimeNumberDecomposeResponse {
+  int32 decompositionResult = 1;
+}
+
+// ComputeAverage Service Messages
+message ComputeAverageRequest {
+ int32 number = 1;
+}
+
+message ComputeAverageResponse {
+  float avgResult = 1;
+}
+
+// FindMaximum Service Messages
+
+message FindMaximumRequest {
+  int32 number = 1;
+}
+
+
+message FindMaximumResponse {
+  int32 maxResult = 1;
+}
